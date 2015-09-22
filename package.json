@@ -1,0 +1,19 @@
+{
+  "name": "smug-shot",
+  "version": "1.0.0",
+  "description": "Module to interact with SmugMug 2.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "smugmug",
+    "2.0"
+  ],
+  "author": "jspenc72",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.10.0",
+    "request": "^2.62.0"
+  }
+}
