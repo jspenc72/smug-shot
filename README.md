@@ -13,7 +13,6 @@ $ mkdir newApp
 $ cd newApp
 $ npm init 
 ```
-
   Install smug-shot as a dependency:
 
 ```
