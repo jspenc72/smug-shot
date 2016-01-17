@@ -1,6 +1,6 @@
 {
   "name": "smug-shot",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Module to interact with SmugMug 2.0",
   "main": "index.js",
   "scripts": {
