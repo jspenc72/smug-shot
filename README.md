@@ -38,7 +38,6 @@ humble.albums.get()
 });
 
 ```
-* [Smug Mug API](https://api.smugmug.com/api/v2/doc/index.html)
 
 
 ## Installation
@@ -56,6 +55,7 @@ $ npm install smug-shot --save
 
   * [Website and Documentation](https://www.smugmug.com) - [[github repo](https://github.com/jspenc72/smug-shot)]
   * [NPM](https://www.npmjs.com/package/smug-shot)
+  * [Smug Mug API](https://api.smugmug.com/api/v2/doc/index.html)
 
 ## Goals
   * 100% Smug Mug End Point Coverage (Currently Much Less)
