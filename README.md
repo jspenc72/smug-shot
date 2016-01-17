@@ -61,6 +61,10 @@ $ npm install smug-shot --save
 ## Goals
   * 100% Smug Mug End Point Coverage (Currently Much Less)
 
+## Dependencies
+  * [bluebird](https://www.npmjs.com/package/bluebird)
+  * [request](https://www.npmjs.com/package/request)
+
 ## Examples
 
   To view the examples, clone the 
