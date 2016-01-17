@@ -153,59 +153,6 @@ module.exports = function (options) {
 			}
 		}		
 	}
-	var album = function(album_opts){
-		return {
-			images: function(images_opts){
-				//album
-				var album_key = '';
-				if(album_opts){
-					if(album_opts.key){
-						album_key = album_opts.key;
-					}			
-				}
-				//images
-				var count = 200, start=1;
-				if(images_opts){
-					if(images_opts.count){
-						count = images_opts.count;
-					}
-					if(images_opts.start){
-						start = images_opts.start
-					}						
-				}
-				var imagesOptions = {
-					url: "http://www.smugmug.com/api/v2/album/"+album_key+"!images"+"?APIKey="+config.api_key+"&count="+count+"&start="+start,
-					headers: {
-						'User-Agent': 'request',
-						'Accept': ' application/json',
-						'Response' : ' application/json'
-					},
-					json: true	
-				};
-				return new Promise(function(resolve, reject) {	
-					// console.log(imagesOptions.url);
-					request.get(imagesOptions, function(error, response, body){
-						if(error){
-							reject(error)
-						}else{
-							if(response.statusCode==401){
-								reject(response.body);
-							}
-							if(response.statusCode==200){
-								resolve({Images: body.Response.AlbumImage, response: response, body: body})
-							}
-						}
-					})
-				})			
-			},
-			image: {
-				get: function(image_opts){
-					//Example
-					//http://www.smugmug.com/api/v2/album/PnQrdv/image/hVL2W9V-0
-				}
-			}
-		}
-	}
 	var image = function(opts){
 		return {
 			get: function(){
@@ -274,6 +221,130 @@ module.exports = function (options) {
 			}
 		}
 	}
+	var album = function(album_opts){
+		return {
+			images: function(){
+				//album
+				return {
+					get: function(images_opts){
+						var album_key = '';
+						if(album_opts){
+							if(album_opts.key){
+								album_key = album_opts.key;
+							}			
+						}
+						//images
+						var count = 200, start=1;
+						if(images_opts){
+							if(images_opts.count){
+								count = images_opts.count;
+							}
+							if(images_opts.start){
+								start = images_opts.start
+							}						
+						}
+						var imagesOptions = {
+							url: "http://www.smugmug.com/api/v2/album/"+album_key+"!images"+"?APIKey="+config.api_key+"&count="+count+"&start="+start,
+							headers: {
+								'User-Agent': 'request',
+								'Accept': ' application/json',
+								'Response' : ' application/json'
+							},
+							json: true	
+						};
+						return new Promise(function(resolve, reject) {	
+							// console.log(imagesOptions.url);
+							request.get(imagesOptions, function(error, response, body){
+								if(error){
+									reject(error)
+								}else{
+									if(response.statusCode==401){
+										reject(response.body);
+									}
+									if(response.statusCode==200){
+										resolve({Images: body.Response.AlbumImage, response: response, body: body})
+									}
+								}
+							})
+						})	
+					},
+					list: function(images_opts){
+						var album_key = '';
+						if(album_opts){
+							if(album_opts.key){
+								album_key = album_opts.key;
+							}			
+						}
+						//images
+						var count = 200, start=1;
+						if(images_opts){
+							if(images_opts.count){
+								count = images_opts.count;
+							}
+							if(images_opts.start){
+								start = images_opts.start
+							}						
+						}
+						var imageListOptions = {
+							url: "http://www.smugmug.com/api/v2/album/"+album_key+"!images"+"?APIKey="+config.api_key+"&count="+count+"&start="+start,
+							headers: {
+								'User-Agent': 'request',
+								'Accept': ' application/json',
+								'Response' : ' application/json'
+							},
+							json: true	
+						};
+
+						return new Promise(function(resolve, reject) {	
+							// console.log(imagesOptions.url);
+							request.get(imageListOptions, function(error, response, body){
+								if(error){
+									reject(error)
+								}else{
+									if(response.statusCode==401){
+										reject(response.body);
+									}
+									if(response.statusCode==200){
+										var AlbumImageArr = body.Response.AlbumImage;
+										var tmpImagesArr = [];
+										if(body.Response.AlbumImage){
+											for(var i=0; i<body.Response.AlbumImage.length; i++){
+												//Request image uris
+												var tmpImage = body.Response.AlbumImage[i];
+												var tmpKey = tmpImage.Uri.split("/image/")[1];
+												// console.log("Getting sizes for: "+tmpKey)
+												image({key:tmpKey}).sizes()
+												.then(function(res){
+													// console.log("res: "+res.Sizes.MediumImageUrl)
+													var resImage = AlbumImageArr[tmpImagesArr.length]
+													resImage.Sizes = res.Sizes
+													tmpImagesArr.push(resImage)
+													if(tmpImagesArr.length==body.Response.AlbumImage.length){
+														resolve({Images: tmpImagesArr, response: response, body: body})
+													}
+												})
+											}
+										}else{
+											resolve({Images: tmpImagesArr, response: response, body: body})
+											console.error(body)
+										}
+									}
+								}
+							})
+						})						
+					}
+				}
+		
+			},
+			image: {
+				get: function(image_opts){
+					//Example
+					//http://www.smugmug.com/api/v2/album/PnQrdv/image/hVL2W9V-0
+				}
+			}
+		}
+	}
+
 	return {
 		connect: function(options){
 			return connect(options);
