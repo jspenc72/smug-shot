@@ -1,4 +1,4 @@
-var humble = require('../index.js')({username: 'teerlinkcabinet', api_key: 'zE89IKhzCkTWIgU03nP6V0nX5IYcrxVX'})
+var humble = require('../index.js')({username: '', api_key: ''})
 humble.albums.get()
 .then(function(res){
 	console.log('albums().get then()')

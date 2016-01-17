@@ -1,5 +1,5 @@
-var userName = "teerlinkcabinet"
-var apiKey = "zE89IKhzCkTWIgU03nP6V0nX5IYcrxVX"
+var userName = ""
+var apiKey = ""
 var humble = require('../index.js')({username: userName, api_key: apiKey})
 
 humble.albums.get()
