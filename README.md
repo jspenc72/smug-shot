@@ -1,4 +1,4 @@
-[![SmugMug Logo](https://cdn.smugmug.com/img/spacer.gif)](https://www.smugmug.com)
+[![SmugMug Logo](https://upload.wikimedia.org/wikipedia/en/5/5c/SmugMug_Logo_(Dark).png)](https://www.smugmug.com)
 
 # smug-shot
 - **Unofficial** NodeJS SDK for [SmugMug](https://www.smugmug.com)
