@@ -1,12 +1,15 @@
 {
   "name": "smug-shot",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Module to interact with SmugMug 2.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "smug",
+    "mug",
+    "api",
     "smugmug",
     "2.0"
   ],

@@ -26,8 +26,6 @@ $ npm install --save smug-shot
 //index.js
 var username = "" //Your SmugMug App Username
 var apiKey = "" //Your SmugMug App API Key
-var userName = "teerlinkcabinet"
-var apiKey = "zE89IKhzCkTWIgU03nP6V0nX5IYcrxVX"
 var humble = require('smug-shot')({username: username, api_key: apiKey})
 
 humble.albums.get()
