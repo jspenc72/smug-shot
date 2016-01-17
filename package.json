@@ -1,10 +1,14 @@
 {
   "name": "smug-shot",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Module to interact with SmugMug 2.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jspenc72/smug-shot"
   },
   "keywords": [
     "smug",
