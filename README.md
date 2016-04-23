@@ -2,7 +2,7 @@
 
 # smug-shot
 - **Unofficial** NodeJS SDK for [SmugMug](https://www.smugmug.com)
-- "Stunning Photo Websites. For You, Your Family, Or Your Business
+- "Stunning Photo Websites. For You, Your Family, Or Your Business"
 
 ## Quick Start
 
