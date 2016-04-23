@@ -54,6 +54,9 @@ module.exports = function (options) {
 					}
 					if(opts.start){
 						start = opts.start
+					}
+					if(opts.sort){
+						sort = opts.sort
 					}					
 				}
 				var albumsOptions = {
