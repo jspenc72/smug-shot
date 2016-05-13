@@ -1,8 +1,7 @@
-var userName = ""
-var apiKey = ""
-var humble = require('../index.js')({username: userName, api_key: apiKey})
+var creds = require('./credentials.js')()
+var smug = require('../index.js')(creds)
 
-humble.albums.get()
+smug.albums.get()
 .then(function(res){
 	console.log('albums().get then()')
 	console.log(res.Albums.length)

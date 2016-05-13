@@ -22,6 +22,7 @@
   "dependencies": {
     "bluebird": "^2.10.0",
     "client-oauth": "^0.1.2",
+    "lodash": "^4.11.1",
     "oauth": "^0.9.14",
     "request": "^2.62.0"
   }
