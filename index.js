@@ -84,14 +84,17 @@ module.exports = function (options) {
 				})
 			},
 			list: function(opts){
-				var count = 200, start=1;
+				var count = 200, start=1, sortBy='';
 				if(opts){
 					if(opts.count){
 						count = opts.count;
 					}
 					if(opts.start){
 						start = opts.start
-					}					
+					}	
+					if(opts.sortBy){
+						sortBy = opts.sortBy
+					}									
 				}
 				var albumsOptions = {
 					url: config.base_url+config.username+config.albums_string+"?APIKey="+config.api_key+"&count="+count+"&start="+start,
